@@ -1,0 +1,41 @@
+h1
+{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 80px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    text-align: center;
+    color: white;
+}
+a,p,label
+{
+    color: white;
+}
+body
+{
+    background-color: blueviolet;
+    background-repeat: repeat;
+}
+form
+{
+    margin-top: 100px;
+}
+tbody
+{
+    background-color: white;
+}
+.result
+{
+    text-align: center;
+}
+.footer
+{
+    position: fixed;
+    height:50px;
+    width: 100%;
+    text-align: center;
+    color:#ffff;
+    bottom: 0px;
+}
+
