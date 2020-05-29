@@ -45,8 +45,6 @@ if (isset($_POST["login"])) {
             <input type="text" name="email" id="email" placeholder="Masukkan email Anda" required>
         </div>
         <button class="btn btn-primary" type="submit" name="login">Login</button>
-        <br>
-        <a href="logout.php" class="text-white">Bukan Anda?</a>
     </form>
     <div class="footer">
         <p>Copyright &copy;2020 Radiance Alam Pratama</p>
