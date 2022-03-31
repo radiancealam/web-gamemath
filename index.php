@@ -22,23 +22,31 @@ if (!isset($_SESSION["login"])) {
 </head>
 
 <body>
-    <form action="result.php" method="post" align="center">
-        <?php
-        $firstnumber = rand(0, 20);
-        $secondnumber = rand(0, 20);
-        $_SESSION["hasil"] = $firstnumber + $secondnumber;
-        echo "<h1>Halo, " . $_SESSION["nama"] . "</h1>
-        <p>Lives " . $_SESSION["lives"] . "</p>
-        <p>Skor " . $_SESSION["skor"] . "</p>";
-        echo "<label for=jawab>" . $firstnumber . "+" . $secondnumber . "= </label>";
-        ?>
-        <input type="text" name="jawab" placeholder="Masukkan jawaban Anda" require>
-        <button class="btn btn-primary" type="submit" name="submit">Submit</button>
-        <br>
-        <a href="logout.php" class="text-white">Bukan Anda?</a>
-    </form>
+    <div class="container">
+        <div class="row justify-content-center text-center">
+            <div class="col-md-6">
+                <form action="result.php" method="post">
+                    <?php
+                    $firstnumber = rand(0, 20);
+                    $secondnumber = rand(0, 20);
+                    $_SESSION["hasil"] = $firstnumber + $secondnumber;
+                    echo "<h1>Halo, " . $_SESSION["nama"] . "</h1>
+                    <p>Lives " . $_SESSION["lives"] . "</p>
+                    <p>Skor " . $_SESSION["skor"] . "</p>";
+                    echo "<label for=jawab>" . $firstnumber . "+" . $secondnumber . "= </label>";
+                    ?>
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="jawab" placeholder="Masukkan jawaban Anda" require>
+                    </div>
+                    <button class="btn btn-primary mb-3" type="submit" name="submit">Submit</button>
+                    <br>
+                </form>
+                <a href="logout.php" class="text-white">Bukan Anda?</a>
+            </div>
+        </div>
+    </div>
     <div class="footer">
-        <p>Copyright &copy;2020 Radiance Alam Pratama</p>
+        <p>Copyright &copy; <?= date('Y') ?> Radiance Alam Pratama</p>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

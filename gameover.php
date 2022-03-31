@@ -29,31 +29,35 @@ mysqli_query($conn, $query);
         <p>Skor Anda: " . $_SESSION["skor"] . "</p></div>";
     ?>
     <div class="container">
-        <a href="logout.php" class="text-white">Logout</a>
-        <table class="table">
-            <thead class="thead-dark">
-                <tr>
-                    <th scope="col">No</th>
-                    <th scope="col">Nama</th>
-                    <th scope="col">Skor</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
-                include "koneksi.php";
-                $result = mysqli_query($conn, "SELECT * FROM peserta ORDER BY skor DESC LIMIT 10");
-                $no = 1;
-                while ($row = mysqli_fetch_array($result)) {
-                    echo "<tr>
-            <td>" . $no . "</td>
-            <td>" . $row['nama'] . "</td>
-            <td>" . $row['skor'] . "</td>
-            </tr>";
-                    $no++;
-                }
-                ?>
-            </tbody>
-        </table>
+        <div class="row justify-content-center text-center">
+            <div class="col-md-6">
+                <a href="reset.php" class="text-white btn btn-success">Main Lagi</a>
+                <a href="logout.php" class="text-white btn btn-danger">Logout</a>
+                <table class="table mt-3">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">No</th>
+                            <th scope="col">Nama</th>
+                            <th scope="col">Skor</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        $result = mysqli_query($conn, "SELECT * FROM peserta ORDER BY skor DESC LIMIT 10");
+                        $no = 1;
+                        while ($row = mysqli_fetch_array($result)) {
+                            echo "<tr>
+                            <td>" . $no . "</td>
+                            <td>" . $row['nama'] . "</td>
+                            <td>" . $row['skor'] . "</td>
+                            </tr>";
+                            $no++;
+                        }
+                        ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

@@ -10,6 +10,7 @@ if (isset($_POST["login"])) {
     $nama = $_POST["nama"];
     $email = $_POST["email"];
     $_SESSION["nama"] = $nama;
+    setcookie("nama", $nama, time()+3600);
     $_SESSION["skor"] = 0;
     $_SESSION["lives"] = 5;
     $_SESSION["login"] = true;
@@ -34,20 +35,28 @@ if (isset($_POST["login"])) {
 </head>
 
 <body>
-    <h1>GAME MATH</h1>
-    <form action="" method="post" align="center">
-        <div class="form group">
-            <label for="nama">nama :</label>
-            <input type="text" name="nama" id="nama" placeholder="Masukkan nama Anda" required>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-12">
+                <h1>GAME MATH</h1>
+            </div>
+            <div class="col-md-4">
+                <form action="" method="post">
+                    <div class="form group">
+                        <label for="nama">Nama :</label>
+                        <input class="form-control" type="text" name="nama" id="nama" placeholder="Masukkan nama Anda" autofocus required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email :</label>
+                        <input class="form-control" type="text" name="email" id="email" placeholder="Masukkan email Anda" required>
+                    </div>
+                    <button class="btn btn-primary float-right" type="submit" name="login">Login</button>
+                </form>
+            </div>
         </div>
-        <div class="form-group">
-            <label for="email">email :</label>
-            <input type="text" name="email" id="email" placeholder="Masukkan email Anda" required>
-        </div>
-        <button class="btn btn-primary" type="submit" name="login">Login</button>
-    </form>
+    </div>
     <div class="footer">
-        <p>Copyright &copy;2020 Radiance Alam Pratama</p>
+        <p>Copyright &copy; <?= date('Y') ?> Radiance Alam Pratama</p>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
